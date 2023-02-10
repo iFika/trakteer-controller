@@ -1,6 +1,5 @@
-# trakteer-control
 ## General info
-Kontrol Perangkat menggunakan Saweria Webhook. (Biasanya digunakan yang konten tentang atur permainanku misal drop senjata dan sebagainya)
+Kontrol Perangkat menggunakan Trakteer lewat Discord Webhook. (Biasanya digunakan yang konten tentang atur permainanku misal drop senjata dan sebagainya)
 
 ## Library
 NodeJS : v18, MSVC 2019
