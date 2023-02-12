@@ -6,7 +6,7 @@ NodeJS : v18, MSVC 2019
 
 ## Shortcut Wiki
 * [List Kode](https://github.com/iFika/saweria-controller/wiki/Kode-Script-Donasi) 
-* [Cara Penggunaannya](https://youtu.be/6jJGe0pAhGo) 
+* [Cara Penggunaannya](https://youtu.be/t5E62GVtn4E) 
 
 ## Buy Me Coffee?
 * [Saweria](https://saweria.co/fikasm)
