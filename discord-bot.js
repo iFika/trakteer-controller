@@ -5,6 +5,7 @@ const rl = require("readline").createInterface({
     input: process.stdin,
     output: process.stdout
 })
+let id_channel = process.env.CHANNEL_WEBHOOK
 let realtime_console = false;
 let trakteer_berhasil = 0;
 let trakteer_gagal = 0;
@@ -12,18 +13,28 @@ let trakteer_gagal = 0;
 const path = require("path")
 const fs = require("fs")
 const { mouse, left, right, up, down, straightTo, centerOf, Region, keyboard, Key, Button} = require("@nut-tree/nut-js");
+let bot_name = "", channel_name = ""
 load()
+
 async function load()
 {
+console.log(`Initializing Bot..`)
 const client = new Client({
     intents: ['DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILDS']
 });
 
 client.on('ready', async () => {
+    console.clear();
+    bot_name = client.user.tag
+    let channel_fetch = client.channels.cache.get(id_channel);
+    if(channel_fetch?.name == undefined) return console.log(`Invalid ID Channels or no Have Permission yet. Change ID Channels at .env file!`)
+    channel_name = channel_fetch?.name
+    menu_load()
+
 })
 client.on("messageCreate", async function(message) {
 
-if(message.channel.id == "1064233497344098465")
+if(message.channel.id == id_channel)
 {
  if(message.embeds[0])
  {
@@ -65,14 +76,15 @@ fs.readFile(`DATA/load_donasi/${json.name}.js`, async(err, data) => {
 }
 })
 client.login(token);
-menu_load()
 }
 
 async function menu_load()
 {
 console.log("\x1b[32m", `- Trakteer CONTROLLER OPEN SOURCE -
 By : iFika
-
+- INFO DISCORD - 
+Bot Name : ${bot_name} ✅
+Channel Name : ${channel_name} ✅
 Menu Tersedia :
 1. Opsi Donasi Tersedia
 2. Realtime Console (Setelah memilih ini, harus membutuhkan restart program supaya kembali ke menu!)`)
